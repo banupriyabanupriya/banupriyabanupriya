@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI CALCULATOR</title>
+<style>
+
+.weight{
+    margin-top: 20px;
+
+}
+input[type=button]{
+    margin-top: 30px;
+    width: 170px;
+    height:25px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #03aa5c;
+    background-color: #03aa5c;
+    color: white;
+}
+input[type=number]{
+    display: block;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    height: 15px;
+}
+.page{
+    margin-left: 510px;
+    margin-top: 100px;
+    border-style: solid;
+    border-color:black;
+    width: 190px;
+    height:320px;
+    padding: 40px;
+    border-radius: 25px;
+    background-color: white;
+
+}
+
+body{ 
+    background-color:rgba(9, 135, 158, 0.842); 
+   
+} 
+h2{
+    color:#079f58;
+}
+.bmi{
+    margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+<h2><b>BMI Calculator</b></h2>
+<div class="height">
+<label for="height"><b>Height(m)</b></label>
+<input type="number" id="height" placeholder="number" required>
+</div>
+<div class="weight">
+<label for="weight"><b>Weight(kg)</b></label>
+<input type="number" id="weight" placeholder="number" required>
+</div>
+<div class="bmi">
+<label for="bmi"><b>BMI</b></label>
+<input type="number" id="bmi" placeholder="result" >
+</div>
+<input type="button" id="button" placeholder="BMI" value="Calculate BMI" onclick="calculateBMI()">
+</div>
+<script>
+    function calculateBMI() {
+        var height = parseFloat(document.getElementById("height").value);
+        var weight = parseFloat(document.getElementById("weight").value);
+        
+        if (height === 0 || weight === 0 || isNaN(height) || isNaN(weight)) {
+            alert("Please enter both height and weight in valid numbers.");
+            return;
+        }
+        
+        var bmi = weight / (height * height);
+        document.getElementById("bmi").value = bmi.toFixed(2);
+     
+        if (bmi < 18.5) {
+            alert("You are underweight");
+        } else if (bmi >= 18.5 && bmi < 25) {
+            alert("You are normal weight");
+        } else if (bmi >= 25 && bmi < 30) {
+            alert("You are overweight");
+        } else {
+            alert("You are obese");
+        }
+    }
+    </script>
+    
+</body>
+</html>
