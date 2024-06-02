@@ -1,0 +1,182 @@
+
+<html>
+<head>
+<title>Calci</title>
+<style>
+body{
+    background-color:teal;
+}
+.calci{
+    background-color: white;
+    width: 380px;
+    height: 230px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 170px;
+    margin-left: 400px;
+
+}
+
+
+.display{
+    display: block;
+    
+}
+.decimal{
+    background-color: lightgreen;
+    margin-top: 3px;
+    margin-right: 4px;
+    height: 40px;
+    width: 100px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.decimal:hover{
+    background-color: white;
+
+}
+.solve{
+    background-color: skyblue;
+    margin-top: 3px;
+    margin-right: 4px;
+    height: 40px;
+    width: 100px;
+    border-style: solid;
+    border-color: black;
+
+}
+.solve:hover{
+    background-color: white;
+}
+
+.operator{
+    background-color: orange;
+    margin-top: 3px;
+    margin-right: 4px;
+    width: 50px;
+    height: 40px;
+    border-style: solid;
+    border-color: black;
+
+    
+   
+}
+.operator:hover{
+    background-color: white;
+}
+
+.number{
+    margin-top: 3px;
+    margin-right: 4px;
+    height: 40px;
+    width: 100px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.number:hover{
+    background-color: white;
+}
+.clear {
+    margin-top: 3px;
+    margin-left: 4px;
+    width: 50px;
+    height: 40px;
+    background-color: lightcoral;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.clear:hover{
+    background-color: white;
+}
+input[type=text]{
+    background-color: darkgrey;
+    width: 315px;
+    height: 40px;
+    margin-bottom: 5px;
+   
+    border-style: solid;
+    border-color: black;
+    color: white;
+}
+
+
+
+
+
+</style>
+
+</head>  
+<body>
+<div class="calci">
+<div class="screen">
+<colspan="3">
+<input type="text" id="result" >
+<input type="button" value="c" onclick="clearscreen()" class="clear">
+</div>
+
+
+<div class="display1">
+<input type="button" value="1" onclick="display('1')" class="number">
+
+<input type="button" value="2" onclick="display('2')" class="number">
+
+<input type="button" value="3" onclick="display('3')" class="number" >
+
+<input type="button" value="/" onclick="display('/')" class="operator">
+</div>
+
+<div class="display1">
+<input type="button" value="4" onclick="display('4')" class="number">
+
+ <input type="button" value="5" onclick="display('5')" class="number" >
+
+<input type="button" value="6" onclick="display('6')" class="number">
+
+<input type="button" value="-" onclick="display('-')" class="operator">
+</div>
+
+<div class="display1">
+<input type="button" value="7" onclick="display('7')"  class="number" >
+
+<input type="button" value="8" onclick="display('8')"  class="number">
+
+<input type="button" value="9" onclick="display('9')"  class="number">
+
+<input type="button" value="+" onclick="display('+')" class="operator">
+</div>
+
+<div class="display1">
+<input type="button" value="." onclick="display('.')" class="decimal" >
+
+<input type="button" value="0" onclick="display('0')" class="number" >
+
+<input type="button" value="=" onclick="solve('=')" class="solve">
+
+<input type="button" value="*" onclick="display('*')" class="operator">
+</div>
+</div>
+
+<script>
+
+function display(a){
+  document.getElementById("result").value += a;
+}
+
+function solve(){
+    var x = document.getElementById("result").value;
+    var y = eval(x);
+    document.getElementById("result").value= y;
+}
+function clearscreen(){
+    document.getElementById("result").value="";
+}
+
+</script>
+</body>
+</html>
